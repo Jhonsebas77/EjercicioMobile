@@ -52,6 +52,9 @@ import {patients} from '../utilities/pacientes';
      const LoginName = params ? params.name : null;
      const LoginPassword = params ? params.password : null;
 
+     var d = new Date();
+     var Fecha=d.getFullYear() + "/" + (d.getMonth()+1)+ "/"+ d.getDate();
+
      if (!this.state.loaded) {
        return this.renderLoadingView();
      }
@@ -59,10 +62,9 @@ import {patients} from '../utilities/pacientes';
      return (
        <ScrollView style={styles.container}>
            <Navbar name={LoginName}/>
-       <Text>Pacientes</Text>
-       <Card>
+       <Card title="Bienvenido">
          <Text>
-           Hola
+          {Fecha}
          </Text>
        </Card>
 
@@ -117,7 +119,7 @@ import {patients} from '../utilities/pacientes';
 
 <Divider style={{ backgroundColor: 'white', marginTop:10 }} />
 
-<Card title="Pacientes">
+<Card title="Amigos Doctores">
           <FlatList
             horizontal={true}
             data={this.state.users.results}

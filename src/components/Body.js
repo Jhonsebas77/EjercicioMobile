@@ -15,7 +15,7 @@
    StatusBar,KeyboardAvoidingView,ScrollView
  } from 'react-native';
 import { SearchBar,Card  } from 'react-native-elements';
-
+import MapView from 'react-native-maps';
 
  export default class Body extends React.Component<{}> {
 
@@ -27,12 +27,26 @@ import { SearchBar,Card  } from 'react-native-elements';
      return (
 
       <Card title= "Informacion Clinica">
-        <View style={styles.bigView}>
-    <Text>
-       Mapa Clinica
-    </Text>
+        <View style={styles.mapContainer}>
+          <MapView style={styles.map}
+              region={{
+                // latitude:this.props.lat,
+                // longitude: this.props.long,
+                latitude: 37.78825,
+                longitude: -122.4324,
+                latitudeDelta: 0.0009,
+                longitudeDelta: 0.0009,
+              }}>
+              <MapView.Marker
+               coordinate={{
+                 latitude: 37.78825,
+                 longitude: -122.4324,
+                }}
+               title="Prueba"
+               description="Otra Prueba"
+             />
+          </MapView>
         </View>
-
       </Card>
      );
    }
@@ -62,7 +76,28 @@ stylesleftbar:{
   borderRightWidth:4,
   borderRightColor:'white',
 },
-
+mapContainer:{
+  position:'absolute',
+  top:0,
+  left:'40%',
+  bottom:0,
+  right:0,
+  justifyContent:'flex-end',
+  alignItems:'center'
+},
+mapView:{
+  width:'100%',
+  alignItems:'center',
+  justifyContent:'center',
+  height:100,
+},
+map: {
+  position:'absolute',
+  top:0,
+  left:0,
+  bottom:0,
+  right:0
+},
  });
 
  module.exports = Body;
