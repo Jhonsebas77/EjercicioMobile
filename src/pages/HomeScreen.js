@@ -15,8 +15,9 @@
 import {SearchBar,Card} from 'react-native-elements';
 import Navbar from '../components/Navbar';
 import ItemUser from '../components/ItemUser';
+import ItemPill from '../components/ItemPill';
 import Loading from '../components/Loading';
-import {getRandomUsers,getAllArtists,getAllHotels} from '../utilities/api';
+import {getRandomUsers,getAllArtists,getAllData} from '../utilities/api';
 import { List, ListItem,CheckBox,Divider,Slider} from 'react-native-elements';
 import {patients} from '../utilities/pacientes';
 
@@ -28,17 +29,20 @@ import {patients} from '../utilities/pacientes';
        super(props);
        this.state={
          users:[],
-         allhotels:[],
+         alldata:[],
          loaded:false,
          pacientes:[],
+         pacientesSearch:[],
+         text:'',
+         noData:false,
        }
    }
 
    async componentWillMount(){
      let users = await getRandomUsers();
-     let allhotels = await getAllHotels();
+     let alldata = await getAllData();
 
-     this.setState({users,allhotels,pacientes:patients,loaded:true});
+     this.setState({users,alldata,pacientesSearch:patients,pacientes:patients,loaded:true});
    }
 
    renderLoadingView(){
@@ -46,6 +50,51 @@ import {patients} from '../utilities/pacientes';
        <Loading imageLoading= {require('../img/Logo.png')} />
      )
    }
+
+   /*
+    * Filtro de Busqueda, recibe el Texto del SearchBar
+    * compara las dos cadenas de texto y retorna un valor
+    * con el cual podemos tomar desiciones
+    *
+    * ademas se realizan otras validaciones para permitir retornar
+    la busqueda sin afectar la lista original
+    */
+   filterSearch(text){
+     const newData = this.state.pacientesSearch.filter(function (pacientes){
+       const itemData = pacientes.name.first.toUpperCase()
+       const textData= text.toUpperCase()
+       return itemData.indexOf(textData) > -1
+     })
+     // Si no coinciden y el texto es vacio retorne la lista original
+     if (!text || text === '') {
+         this.setState({
+           pacientesSearch:this.state.pacientes,
+           text:''
+         })
+       }
+        // Si no coincide ningun dato retorne la lista original
+        else if (!Array.isArray(newData) && !newData.length) {
+         this.setState({
+           pacientesSearch:this.state.pacientes,
+           noData: true
+         })
+       }
+       // Si el nombre coincide retorna los valores necesarios y lo pasa al FlatList
+       // done mapea los datos y le asigna un indice para poderlo visualizar
+
+       else if (Array.isArray(newData)) {
+         this.setState({
+           noData: false,
+           pacientesSearch:newData,
+           text:text
+         })
+       }
+   }
+
+
+
+
+// ddddddd
 
    render() {
      const { params } = this.props.navigation.state;
@@ -68,23 +117,6 @@ import {patients} from '../utilities/pacientes';
          </Text>
        </Card>
 
-      <Divider style={{ backgroundColor: 'white', marginTop:10 }} />
-
-          <List containerStyle={{marginBottom: 20}}>
-            {
-              this.state.allhotels.map((l, i) => (
-                <TouchableOpacity>
-                <ListItem
-                  roundAvatar
-                  avatar={{uri:l.image}}
-                  key={i}
-                  title={l.name}
-                  subtitle={l.city}
-                />
-                </TouchableOpacity>
-              ))
-            }
-          </List>
 
 <Divider style={{ backgroundColor: 'white', marginTop:10 }} />
 
@@ -93,12 +125,12 @@ import {patients} from '../utilities/pacientes';
     lightTheme
     icon={{name: 'search', color: 'white'}}
     placeholder=' ¿Buscas un paciente en especifico?'
-    // onChangeText= {(text)=>this.filterSearch(text)}
-    // value={this.state.text}
+    onChangeText= {(text)=>this.filterSearch(text)}
+    value={this.state.text}
    />
   <List containerStyle={{marginBottom: 20}}>
     {
-      this.state.pacientes.map((pacientes) => (
+      this.state.pacientesSearch.map((pacientes) => (
         <TouchableOpacity
           onPress={() => {
              this.props.navigation.navigate('Usuario', {pacientes});
@@ -108,7 +140,7 @@ import {patients} from '../utilities/pacientes';
           roundAvatar
           avatar={{uri:pacientes.picture.large}}
           key={pacientes.login.md5}
-          title={pacientes.name.first}
+          title={pacientes.name.first + " "+ pacientes.name.last}
           subtitle={pacientes.email}
         />
         </TouchableOpacity>
@@ -119,10 +151,10 @@ import {patients} from '../utilities/pacientes';
 
 <Divider style={{ backgroundColor: 'white', marginTop:10 }} />
 
-<Card title="Amigos Doctores">
+
           <FlatList
             horizontal={true}
-            data={this.state.users.results}
+            data={this.state.alldata}
             keyExtractor={(x,i)=>i.toString()}
             renderItem={({item})=>
             <TouchableOpacity
@@ -130,15 +162,13 @@ import {patients} from '../utilities/pacientes';
                  this.props.navigation.navigate('Usuario', {item});
                }}
               >
-              <ItemUser
-              name= {item.name.first}
-              last={item.name.last}
-              imageSource ={item.picture.large}
+              <ItemPill
+              medicaments= {item.medicaments}
             />
             </TouchableOpacity>
             }
           />
-</Card>
+
 
   </ScrollView>
      );

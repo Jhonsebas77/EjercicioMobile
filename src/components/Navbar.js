@@ -29,8 +29,13 @@ import { Icon } from 'react-native-elements';
            <Text>Title App</Text>
            <View style={styles.moveRight}>
              <View style={{flexDirection:'column',alignItems:'center'}}>
-               <Icon name="account-circle" size={50} style={styles.icon}/>
-               <Text>{this.props.name}</Text>
+              <TouchableOpacity
+                onPress={()=>
+                  {alert( "Bienvenid@ "+"\n "+this.props.name);}  }
+                >
+               <Icon name="user-md" type='font-awesome' size={50} style={styles.icon}/>
+               <Text>Dr./Dra. {this.props.name}</Text>
+              </TouchableOpacity>
             </View>
            </View>
          </View>
@@ -47,7 +52,7 @@ import { Icon } from 'react-native-elements';
     marginTop: 2,
     marginLeft:2,
     marginRight:2,
-    height:100,
+    height:80,
     backgroundColor:'rgba(255,255,255,0.3)',
     elevation:3,
     width:'100%',

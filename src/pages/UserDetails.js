@@ -54,10 +54,13 @@ import Body from '../components/Body';
       Pais={params.pacientes.location.state}
       Genero={params.pacientes.gender}
       Identificacion={params.pacientes.login.salt}
+      Edad={params.pacientes.age}
     />
   </View>
   <View style={styles.section}>
-      <Body/>
+      <Body
+      Historia={params.pacientes.description}
+    />
   </View>
 </View>
 </ScrollView>

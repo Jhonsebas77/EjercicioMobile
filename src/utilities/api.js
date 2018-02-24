@@ -26,9 +26,9 @@
      return allArtist;
   };
 
-  const getAllHotels =
+  const getAllData =
     async function(){
-     const url='https://my.api.mockaroo.com/allHotels?key=69efee50';
+     const url='https://my.api.mockaroo.com/allData?key=69efee50';
      const response = await fetch(url);
      let allArtist=  await response.json();
      return allArtist;
@@ -36,4 +36,4 @@
 
 module.exports.getRandomUsers = getRandomUsers;
 module.exports.getAllArtists = getAllArtists;
-module.exports.getAllHotels = getAllHotels;
+module.exports.getAllData = getAllData;

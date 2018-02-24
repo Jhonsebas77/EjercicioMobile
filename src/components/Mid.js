@@ -46,7 +46,7 @@ import { List,ListItem,SearchBar,Card,Icon,FormLabel, Badge,FormInput,Divider  }
                color='#f50'/>
              <Badge containerStyle={styles.badge} wrapperStyle={styles.badgeExt}>
                <Text>Edad</Text>
-               <Text style={styles.badgeText}>27</Text>
+               <Text style={styles.badgeText}>{this.props.Edad}</Text>
              </Badge>
              <View style={{padding:10 }}>
                <Divider style={styles.divider}/>
