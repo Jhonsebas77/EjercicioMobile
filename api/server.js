@@ -5,6 +5,7 @@ var express = require("express"),
     mongoose = require('mongoose');
 var router = express.Router();
 var port = process.env.PORT || 3977;
+var ip = process.env.IP || '192.168.0.7';
 var UserCtrl = require('./Controllers/UserCtrl');
 var ArtistCtrl = require('./Controllers/ArtistCtrl');
 var AlbumCtrl = require('./Controllers/AlbumCtrl');
@@ -15,6 +16,7 @@ var md_upload_user = multipart({uploadDir:'./uploads/users'});
 var md_upload_artist = multipart({uploadDir:'./uploads/artist'});
 var md_upload_album = multipart({uploadDir:'./uploads/album'});
 var md_upload_song = multipart({uploadDir:'./uploads/songs'});
+
 /*
   Conexion a MongoDB por medio del servicio MongoLab
 */
@@ -23,8 +25,8 @@ mongoose.connect('mongodb://Sebastian:12345@ds111638.mlab.com:11638/otadb',(err,
     console.log('ERROR: connecting to Database. ' + err);
   }  else {
     console.log("La conexion a la BD esta funcionando...");
-    app.listen(port, function() {
-      console.log("Node server running on http://localhost:"+port);
+    app.listen(port,ip, function() {
+      console.log("Node server running on http://"+ip+":"+port);
     });
   }
 });
@@ -42,6 +44,7 @@ var album = express.Router();
 var song = express.Router();
 
 user.route('/register')
+  .get(UserCtrl.pruebas)
   .post(UserCtrl.saveUser);
 user.route('/login')
   .post(UserCtrl.loginUser);
@@ -59,7 +62,7 @@ artist.route('/artist/:id')
 artist.route('/register')
   .post(md_auth.ensureAuth,ArtistCtrl.saveArtist);
 artist.route('/get-allArtists')
-  .get(md_auth.ensureAuth,ArtistCtrl.getAllArtists);
+  .get(ArtistCtrl.getAllArtists);
 artist.route('/upload-avatar-artist/:id')
   .post([md_auth.ensureAuth,md_upload_artist],ArtistCtrl.uploadImage);
 artist.route('/get-avatar-artist/:imageFile')
@@ -85,11 +88,11 @@ song.route('/song/:id')
   .put(md_auth.ensureAuth,SongCtrl.updateSong)
   .delete(md_auth.ensureAuth,SongCtrl.deleteSong);
 song.route('/get-allSongs/:album?')
-  .get(md_auth.ensureAuth,SongCtrl.getAllSongs);
+  .get(SongCtrl.getAllSongs);
 song.route('/upload-file-song/:id')
   .post([md_auth.ensureAuth,md_upload_song],SongCtrl.uploadFile);
 song.route('/get-song-file/:songFile')
-  .get(md_auth.ensureAuth,SongCtrl.getSongFile);
+  .get(SongCtrl.getSongFile);
 
 app.use('/api/users', user);
 app.use('/api/artist', artist);

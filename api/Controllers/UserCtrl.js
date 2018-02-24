@@ -5,9 +5,8 @@ const User = require('../Models/user');
 const jwt = require('../services/jwt');
 
 exports.pruebas = function(req,res){
-  res.status(200).send({
-    'message':'"Hola Mundo"',
-  });
+  console.log('GET /Prueba')
+  res.status(200).send({message:'Hola'});
 };
 exports.saveUser=function(req,res){
   const user = new User();
@@ -29,6 +28,7 @@ exports.saveUser=function(req,res){
             if(!userStored){
               res.status(404).send({message:'No se ha registrado el usuario'});
             }else{
+              console.log('GET /saveUser')
               res.status(200).send({user:userStored});
             }
           }

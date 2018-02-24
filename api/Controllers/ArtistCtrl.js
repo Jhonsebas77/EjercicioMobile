@@ -44,17 +44,19 @@ exports.getAllArtists = function(req,res){
   }else{
     var page = 1;
   }
-  var itemsPerPage=3;
+  var itemsPerPage=10;
 
   Artist.find().sort('name').paginate(page,itemsPerPage,(err,artists,total)=>{
     if(err){
       res.status(500).send({message:'Error en la peticion'});
+      console.log('GET /artist 500');
     }else{
       if(!artists){
         res.status(404).send({message:'No hay artistas'});
+        console.log('GET /artist 404');
       }else{
+        console.log('GET /Artist');
         return res.status(200).send({
-          total_item:total,
           artists:artists
         });
       }
