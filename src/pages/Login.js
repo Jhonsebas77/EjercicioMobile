@@ -13,37 +13,32 @@
    Button,Alert,TouchableOpacity,
    StatusBar,KeyboardAvoidingView,
  } from 'react-native';
-import { SearchBar,Card,Header,FormLabel, FormInput,Slider  } from 'react-native-elements';
-import FormLogin from '../components/FormLogin';
+ import {Card} from 'react-native-elements';
 
  export default class Login extends React.Component<{}> {
    static navigationOptions = ({ navigation }) => ({
-        header:false,
-      });
-
-      constructor(props) {
-        super(props);
-        this.state = { nameInput: '', passwordInput:''};
-      }
-
+      header:false,
+    });
+    constructor(props) {
+      super(props);
+      this.state = { nameInput: '', passwordInput:''};
+    }
 
    render() {
-
      const { navigate } = this.props.navigation;
      var name=this.state.nameInput;
      var password=this.state.passwordInput;
 
      return (
        <View  style={styles.container}>
-
+         <StatusBar
+          barStyle="light-content"
+         />
          <View style={styles.logoContainer}>
            <Image
              source= {require('../img/Logo.png')}
            />
-          <Text style={styles.title}>A Simple App made with Love</Text>
-          <Text>{this.state.nameInput}</Text>
-          <Text>{this.state.passwordInput}</Text>
-
+           <Text style={styles.title}>Medical Organizer (Beta)</Text>
          </View>
          <View style={styles.formContainer}>
            <Text style={styles.label}>Nombre</Text>
@@ -74,10 +69,9 @@ import FormLogin from '../components/FormLogin';
                  });
                }}
                >
-              <Text style={styles.buttonText}>Iniciar Sesion</Text>
-            </TouchableOpacity>
+            <Text style={styles.buttonText}>Iniciar Sesion</Text>
+          </TouchableOpacity>
          </View>
-
        </View>
      );
    }
@@ -86,7 +80,7 @@ import FormLogin from '../components/FormLogin';
  const styles = StyleSheet.create({
    container: {
      flex: 1,
-     backgroundColor:'#6DA29E'
+     backgroundColor:'#3498db'
    },
    logoContainer: {
      flexGrow:1,
@@ -94,26 +88,30 @@ import FormLogin from '../components/FormLogin';
      justifyContent:'center'
    },
    logo: {
-     width: 500,
-     height:500
+     width: 150,
+     height:150
    },
    title:{
      color:'white',
+     marginTop:10,
+     width:140,
+     textAlign:'center',
    },
    formContainer:{
-     flex:2,
+     padding:20,
    },
    buttonContainer:{
-     backgroundColor:'green',
+     backgroundColor:'#2980b9',
+     paddingVertical:15,
    },
    buttonText:{
      color:'white',
      textAlign:'center',
-     fontWeight:'bold',
+     fontWeight:'700',
    },
    input: {
     width: '100%',
-    backgroundColor:'rgba(255,255,255,0.3)',
+    backgroundColor:'rgba(255,255,255,0.2)',
     paddingLeft:10,
     paddingRight:10,
     marginBottom:15,
@@ -121,7 +119,7 @@ import FormLogin from '../components/FormLogin';
    label: {
      alignItems: 'center',
      textAlign:'center',
-     color:'white',
+     color:'black',
      fontWeight:'bold',
    },
 

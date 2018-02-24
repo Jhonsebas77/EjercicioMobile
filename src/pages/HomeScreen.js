@@ -8,22 +8,17 @@
  import React, { Component } from 'react';
  import {
    StyleSheet,Text,
-   View,Image,TextInput,
-   Switch,
-   Button,Alert,TouchableOpacity,
+   View,Image,TouchableOpacity,
    FlatList,ImageBackground,
    StatusBar,KeyboardAvoidingView,ScrollView
  } from 'react-native';
-import { SearchBar,Card,Header,FormLabel, FormInput  } from 'react-native-elements';
+import {SearchBar,Card} from 'react-native-elements';
 import Navbar from '../components/Navbar';
-import Player from '../components/Player';
 import ItemUser from '../components/ItemUser';
-import ItemAlbum from '../components/ItemAlbum';
-import ItemArtist from '../components/ItemArtist';
 import Loading from '../components/Loading';
 import {getRandomUsers,getAllArtists,getAllHotels} from '../utilities/api';
-import {patients} from '../utilities/pacientes';
 import { List, ListItem,CheckBox,Divider,Slider} from 'react-native-elements';
+import {patients} from '../utilities/pacientes';
 
  export default class HomeScreen extends React.Component<{}> {
    static navigationOptions = {
@@ -35,17 +30,15 @@ import { List, ListItem,CheckBox,Divider,Slider} from 'react-native-elements';
          users:[],
          allhotels:[],
          loaded:false,
+         pacientes:[],
        }
    }
 
    async componentWillMount(){
      let users = await getRandomUsers();
      let allhotels = await getAllHotels();
-     console.log(allhotels);
-     // console.log(allartist);
-     // this.setState({users,allartist,loaded:true});
-     this.setState({users,allhotels,loaded:true});
-     console.log(allhotels[0].id);
+
+     this.setState({users,allhotels,pacientes:patients,loaded:true});
    }
 
    renderLoadingView(){
@@ -54,30 +47,10 @@ import { List, ListItem,CheckBox,Divider,Slider} from 'react-native-elements';
      )
    }
 
-// fetchData = async ()=>{
-//   const response = await fetch("https://randomuser.me/api?results=10");
-//   const json = await response.json();
-//   this.setState({data: json.results});
-// }
    render() {
      const { params } = this.props.navigation.state;
      const LoginName = params ? params.name : null;
      const LoginPassword = params ? params.password : null;
-console.log(patients);
-     const list = [
-       {
-         name: 'Aplicacion de Notas',
-         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-         subtitle: 'Nunca olvides nada!',
-         icon: 'av-timer'
-       },
-       {
-         name: 'Chris Jackson',
-         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-         subtitle: 'Vice Chairman',
-         icon: 'flight-takeoff'
-       },
-     ]
 
      if (!this.state.loaded) {
        return this.renderLoadingView();
@@ -92,26 +65,7 @@ console.log(patients);
            Hola
          </Text>
        </Card>
-<Card title="Pacientes">
-          <FlatList
-            horizontal={true}
-            data={this.state.users.results}
-            keyExtractor={(x,i)=>i.toString()}
-            renderItem={({item})=>
-            <TouchableOpacity
-              onPress={() => {
-                 this.props.navigation.navigate('Usuario', {item});
-               }}
-              >
-              <ItemUser
-              name= {item.name.first}
-              last={item.name.last}
-              imageSource ={item.picture.large}
-            />
-            </TouchableOpacity>
-            }
-          />
-</Card>
+
       <Divider style={{ backgroundColor: 'white', marginTop:10 }} />
 
           <List containerStyle={{marginBottom: 20}}>
@@ -132,21 +86,28 @@ console.log(patients);
 
 <Divider style={{ backgroundColor: 'white', marginTop:10 }} />
 
-<Card title="Destinos">
+<Card title="Pacientes">
+  <SearchBar
+    lightTheme
+    icon={{name: 'search', color: 'white'}}
+    placeholder=' ¿Buscas un paciente en especifico?'
+    // onChangeText= {(text)=>this.filterSearch(text)}
+    // value={this.state.text}
+   />
   <List containerStyle={{marginBottom: 20}}>
     {
-      patients.map((patients) => (
+      this.state.pacientes.map((pacientes) => (
         <TouchableOpacity
           onPress={() => {
-             this.props.navigation.navigate('Usuario', {patients});
+             this.props.navigation.navigate('Usuario', {pacientes});
            }}
           >
         <ListItem
           roundAvatar
-          avatar={{uri:patients.picture.large}}
-          key={patients.login.md5}
-          title={patients.name.first}
-          subtitle={patients.email}
+          avatar={{uri:pacientes.picture.large}}
+          key={pacientes.login.md5}
+          title={pacientes.name.first}
+          subtitle={pacientes.email}
         />
         </TouchableOpacity>
       ))
@@ -156,7 +117,26 @@ console.log(patients);
 
 <Divider style={{ backgroundColor: 'white', marginTop:10 }} />
 
-
+<Card title="Pacientes">
+          <FlatList
+            horizontal={true}
+            data={this.state.users.results}
+            keyExtractor={(x,i)=>i.toString()}
+            renderItem={({item})=>
+            <TouchableOpacity
+              onPress={() => {
+                 this.props.navigation.navigate('Usuario', {item});
+               }}
+              >
+              <ItemUser
+              name= {item.name.first}
+              last={item.name.last}
+              imageSource ={item.picture.large}
+            />
+            </TouchableOpacity>
+            }
+          />
+</Card>
 
   </ScrollView>
      );

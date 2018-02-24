@@ -12,7 +12,7 @@
    View,Image,TextInput,
    ImageBackground,
    Button,Alert,TouchableHighlight,
-   StatusBar,KeyboardAvoidingView,
+   StatusBar,KeyboardAvoidingView,ScrollView
  } from 'react-native';
 import { SearchBar,Card,FormLabel, FormInput  } from 'react-native-elements';
 import Header from '../components/Header';
@@ -30,24 +30,37 @@ import Body from '../components/Body';
    }
    render() {
      const { params } = this.props.navigation.state;
-     const Nombre = params ? params.patients.name.first : null;
-     const Apellido = params ? params.patients.name.last : null;
+     console.log(params);
+     const Nombre = params ? params.pacientes.name.first : null;
+     const Apellido = params ? params.pacientes.name.last : null;
      var completname= Nombre + " "+  Apellido;
 
      return (
+       <ScrollView>
 <View style={styles.container}>
-  <Header
-    Avatar = {params.patients.picture.large}
-    CompletName = {completname}
-    Correo={params.patients.email}
-    Telefono={params.patients.cell}
-   />
-     <Mid/>
-   <Body/>
-
-
+  <View style={styles.section}>
+    <Header
+      Avatar = {params.pacientes.picture.large}
+      CompletName = {completname}
+      Correo={params.pacientes.email}
+      Telefono={params.pacientes.cell}
+     />
+  </View>
+  <View style={styles.section}>
+    <Mid
+      Direccion={params.pacientes.location.street}
+      TelefonoFijo={params.pacientes.phone}
+      Ciudad={params.pacientes.location.city}
+      Pais={params.pacientes.location.state}
+      Genero={params.pacientes.gender}
+      Identificacion={params.pacientes.login.salt}
+    />
+  </View>
+  <View style={styles.section}>
+      <Body/>
+  </View>
 </View>
-
+</ScrollView>
 
      );
    }
@@ -59,6 +72,11 @@ import Body from '../components/Body';
      backgroundColor:'#fff',
      alignItems :'center',
      justifyContent:'center'
+   },
+
+   section:{
+     width:'100%',
+     marginBottom:10,
    },
 
 

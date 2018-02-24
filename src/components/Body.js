@@ -14,7 +14,7 @@
    Button,Alert,TouchableHighlight,
    StatusBar,KeyboardAvoidingView,ScrollView
  } from 'react-native';
-import { SearchBar,Card,FormLabel, FormInput  } from 'react-native-elements';
+import { SearchBar,Card  } from 'react-native-elements';
 
 
  export default class Body extends React.Component<{}> {
@@ -26,18 +26,14 @@ import { SearchBar,Card,FormLabel, FormInput  } from 'react-native-elements';
 
      return (
 
-      <ScrollView>
+      <Card title= "Informacion Clinica">
         <View style={styles.bigView}>
-          <View style={styles.smallView}>
-            <Image style={styles.picture} source= {require('../img/Logo.png')} />
-          </View>
-          <View style={styles.smallView}>
-            <Image style={styles.picture} source= {require('../img/Logo.png')} />
-          </View>
-    
+    <Text>
+       Mapa Clinica
+    </Text>
         </View>
 
-      </ScrollView>
+      </Card>
      );
    }
  }
