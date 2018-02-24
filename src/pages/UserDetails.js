@@ -18,10 +18,11 @@ import { SearchBar,Card,FormLabel, FormInput  } from 'react-native-elements';
 import Header from '../components/Header';
 import Mid from '../components/Mid';
 import Body from '../components/Body';
+import Extra from '../components/Extra';
 
  export default class UserDetails extends React.Component<{}> {
    static navigationOptions = ({ navigation }) => ({
-     title: "Inicio ",
+     title: "Pacientes ",
      headerTintColor:'#50B19B',
      headerColor:'#50B19B',
    });
@@ -62,6 +63,13 @@ import Body from '../components/Body';
       Historia={params.pacientes.description}
     />
   </View>
+  <View style={styles.section}>
+      <Extra
+        Latitude={params.pacientes.location.latitude}
+        Longitude={params.pacientes.location.longitude}
+        Nombre={completname}
+      />
+  </View>
 </View>
 </ScrollView>
 
@@ -72,7 +80,7 @@ import Body from '../components/Body';
  const styles = StyleSheet.create({
    container: {
      flex: 1,
-     backgroundColor:'#fff',
+     backgroundColor:'#E8E8E8',
      alignItems :'center',
      justifyContent:'center'
    },

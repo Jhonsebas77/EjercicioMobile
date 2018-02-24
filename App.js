@@ -15,12 +15,16 @@ import { StackNavigator } from 'react-navigation';
 import Login from './src/pages/Login';
 import HomeScreen from './src/pages/HomeScreen';
 import UserDetails from './src/pages/UserDetails';
+import Patiens from './src/pages/Patiens';
+import Agenda from './src/pages/Agenda';
 
 
 const ScreenMain = StackNavigator({
   Login:{screen: Login},
   HomeScreen: {screen: HomeScreen},
-  Usuario:{screen: UserDetails},
+  Detalle:{screen: UserDetails},
+  Pacientes:{screen: Patiens},
+  Agenda:{screen: Agenda},
 });
 
 

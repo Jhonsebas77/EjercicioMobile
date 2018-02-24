@@ -20,7 +20,7 @@ import Loading from '../components/Loading';
 import ItemUser from '../components/ItemUser';
 import {getRandomUsers} from '../utilities/api';
 
- export default class HomeScreen extends React.Component<{}> {
+ export default class Agenda extends React.Component<{}> {
    static navigationOptions = {
      header:false,
    };
@@ -82,13 +82,7 @@ import {getRandomUsers} from '../utilities/api';
                   backgroundColor='#03A9F4'
                   fontFamily='Lato'
                   buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                  title='Ver Calendario'
-                  onPress={() => {
-                     this.props.navigation.navigate('Agenda', {
-                       LoginName:LoginName
-                     });
-                   }}
-                />
+                  title='Ver Calendario' />
               </View>
 
            </Card>
@@ -131,5 +125,4 @@ import {getRandomUsers} from '../utilities/api';
    },
  });
 
- module.exports = HomeScreen;
- HomeScreen.defaultProps={... patients};
+ module.exports = Agenda;

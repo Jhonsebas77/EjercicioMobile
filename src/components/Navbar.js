@@ -26,15 +26,15 @@ import { Icon } from 'react-native-elements';
        <View style={styles.container}>
          <View style={styles.navbar}>
            <Image source= {require('../img/Logo.png')} style = {styles.logo} />
-           <Text>Title App</Text>
+           <Text style={styles.title}>Medical Organizer (Beta)</Text>
            <View style={styles.moveRight}>
              <View style={{flexDirection:'column',alignItems:'center'}}>
               <TouchableOpacity
                 onPress={()=>
                   {alert( "Bienvenid@ "+"\n "+this.props.name);}  }
                 >
-               <Icon name="user-md" type='font-awesome' size={50} style={styles.icon}/>
-               <Text>Dr./Dra. {this.props.name}</Text>
+               <Icon name="user-md" type='font-awesome' color='#03ABF4' size={50} style={styles.icon}/>
+               <Text style={styles.userTitle}>{this.props.name}</Text>
               </TouchableOpacity>
             </View>
            </View>
@@ -52,7 +52,7 @@ import { Icon } from 'react-native-elements';
     marginTop: 2,
     marginLeft:2,
     marginRight:2,
-    height:80,
+    height:100,
     backgroundColor:'rgba(255,255,255,0.3)',
     elevation:3,
     width:'100%',
@@ -69,6 +69,21 @@ import { Icon } from 'react-native-elements';
    moveRight: {
       flexDirection:'row',
    },
-
+   title:{
+     color:'#03ABF4',
+     marginTop:10,
+     width:140,
+     fontWeight:'bold',
+     fontSize:20,
+     textAlign:'center',
+   },
+   userTitle:{
+     color:'#03ABF4',
+     width:100,
+     textAlign:'center',
+   },
+   icon:{
+     color:'#03ABF4'
+   },
 
  });

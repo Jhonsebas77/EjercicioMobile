@@ -34,6 +34,7 @@
          <StatusBar
           barStyle="light-content"
          />
+         <Card containerStyle={{height:'100%', width:'90%',borderRadius:20}}>
          <View style={styles.logoContainer}>
            <Image
              source= {require('../img/Logo.png')}
@@ -41,7 +42,6 @@
            <Text style={styles.title}>Medical Organizer (Beta)</Text>
          </View>
          <View style={styles.formContainer}>
-           <Text style={styles.label}>Nombre</Text>
            <TextInput
              placeholder="Nombre de Usuario"
              returnKeyType="next"
@@ -51,7 +51,6 @@
              autoCorrect={false}
              style={styles.input}
               />
-           <Text style={styles.label}>Clave</Text>
            <TextInput
              placeholder="Clave de Usuario"
              secureTextEntry
@@ -72,6 +71,7 @@
             <Text style={styles.buttonText}>Iniciar Sesion</Text>
           </TouchableOpacity>
          </View>
+         </Card>
        </View>
      );
    }
@@ -79,29 +79,34 @@
 
  const styles = StyleSheet.create({
    container: {
+     alignItems:'center',
      flex: 1,
-     backgroundColor:'#3498db'
+     backgroundColor:'#E8E8E8',
+     padding:20,
+     justifyContent:'center',
    },
    logoContainer: {
      flexGrow:1,
+     margin:15,
      alignItems: 'center',
-     justifyContent:'center'
+     justifyContent:'center',
    },
    logo: {
      width: 150,
      height:150
    },
    title:{
-     color:'white',
+     color:'#03A9F4',
      marginTop:10,
      width:140,
      textAlign:'center',
    },
    formContainer:{
      padding:20,
+     marginTop:30,
    },
    buttonContainer:{
-     backgroundColor:'#2980b9',
+     backgroundColor:'#03A9F4',
      paddingVertical:15,
    },
    buttonText:{
@@ -111,16 +116,10 @@
    },
    input: {
     width: '100%',
-    backgroundColor:'rgba(255,255,255,0.2)',
+    backgroundColor:'rgba(0,0,0,0.3)',
     paddingLeft:10,
     paddingRight:10,
     marginBottom:15,
-   },
-   label: {
-     alignItems: 'center',
-     textAlign:'center',
-     color:'black',
-     fontWeight:'bold',
    },
 
  });

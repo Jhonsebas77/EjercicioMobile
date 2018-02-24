@@ -40,48 +40,7 @@ import Note from './Note';
           <Text>{this.props.Historia}</Text>
         </View>
 
-        <View style={styles.container}>
-          <View style={styles.header}>
-            <Text style={styles.headerText}> - Notas - </Text>
-          </View>
-            <ScrollView style={styles.scrollContainer}>
-            {notes}
-            </ScrollView>
-            <View style={styles.footer}>
-              <TouchableOpacity onPress={this.addNote.bind(this)} style={styles.addButton}>
-                <Text style={styles.addButtonText}> + </Text>
-              </TouchableOpacity>
-              <TextInput
-                style={styles.textInput}
-                onChangeText={(noteText)=> this.setState({noteText})}
-                value={this.state.noteText}
-                placeholder='> Notas'
-                placeholderTextColor='white'>
-               </TextInput>
-            </View>
-        </View>
-
-
-        <View style={styles.mapContainer}>
-          <MapView style={styles.map}
-              region={{
-                // latitude:this.props.lat,
-                // longitude: this.props.long,
-                latitude: 37.78825,
-                longitude: -122.4324,
-                latitudeDelta: 0.0009,
-                longitudeDelta: 0.0009,
-              }}>
-              <MapView.Marker
-               coordinate={{
-                 latitude: 37.78825,
-                 longitude: -122.4324,
-                }}
-               title="Prueba"
-               description="Otra Prueba"
-             />
-          </MapView>
-        </View>
+        
       </Card>
      );
    }
