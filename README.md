@@ -52,33 +52,35 @@ Una vez instalado React Native, configuremos lo básico para cargar el proyecto
 
 **Medical Organizer**
 
-El App está enfocada al los Doctores particulares compuesta de la siguiente forma 
->  <kbd>Componentes ./Ejercicio/src/components/</kbd>
+El App está enfocada al Front compuesta de la siguiente forma
+>  <kbd>Componentes ./EjercicioMobile/src/components/</kbd>
 
-> - ./components/Banner : *Header Bienvenida*
-> - ./components/DescHotel :*Descripción Hotel Específico*
-> - ./components/HeaderDetail : *Header Hotel Específico*
+> - ./components/Body : *Cuerpo Detalle Paciente*
+> - ./components/Extra :*MapView con la ubicacion del Paciente*
+> - ./components/Header : *Header Paciente Especifico*
 > - ./components/InfoHotel : *Detalles Hotel Específico*
 > - ./components/ImageOverlay : *Componente Texto sobre Imagen*
-> - ./components/ItemHotel : *Cada uno de los Hoteles que retorna GET/*
+> - ./components/ItemUser : *Cada uno de los Usuarios Doctores /*
 > - ./components/Loading : *Loading Screen*
-
+> - ./components/Mid : *Componente del Medio de un Paciente en especifico*
+> - ./components/NavBar : *Barra Superior HomeScreen*
 
 
 ----------
 >  <kbd>VIstas ./FullStackMobile/src/pages/</kbd>
 
-> - ./pages/MainScreen  : *Vista de inicio, visualiza GET/*
-> - ./pages/Hotel            :*Vista Hotel Específico*
+> - ./pages/MainScreen  : *Vista de Inicio*
+> - ./pages/Login  : *Login*
+> - ./pages/Patients :*Vista todos los pacientes*
+> - ./pages/UserDetails  :*Vista Paciente Especifico*
+> - ./pages/Calendario            :*Aproximacion a Agenda*
 
 ----------
 >  <kbd>Otros </kbd>
 
-> - ./server  : *Servidor WEB*
-> - ./models/hotels  : *Modelos para la BD*
 > - ./src/img/  : *Recursos Graficos*
-> - ./controllers/Ctrlhotels  : *Controladores para la BD*
-> - ./util/API  : *API*
+> - ./src/API  : *API Peticiones Externas*
+> - ./api/  : *Sin Funcionalidad =( *
 
 
 ----------
