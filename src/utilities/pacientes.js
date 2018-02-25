@@ -43,16 +43,19 @@ export const patients = [
   },
   {
     "gender": "male",
+    "age":"34",
     "name": {
       "title": "mr",
-      "first": "barış",
-      "last": "adal"
+      "first": "Barış",
+      "last": "Adal"
     },
     "location": {
       "street": "3875 fatih sultan mehmet cd",
       "city": "elazığ",
       "state": "erzincan",
-      "postcode": 44000
+      "postcode": 44000,
+      "latitude": "55.68871",
+        "longitude": "46.13865",
     },
     "description": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.\n\nDonec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
     "email": "barış.adal@example.com",
@@ -81,6 +84,7 @@ export const patients = [
   },
   {
     "gender": "female",
+    "age":"38",
     "name": {
       "title": "miss",
       "first": "lillie",
@@ -90,7 +94,10 @@ export const patients = [
       "street": "7057 nowlin rd",
       "city": "salem",
       "state": "south dakota",
-      "postcode": 47964
+      "postcode": 47964,
+      "latitude": 22.781631,
+        "longitude": 108.273158,
+
     },
     "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.",
     "email": "lillie.fox@example.com",
@@ -119,6 +126,7 @@ export const patients = [
   },
   {
     "gender": "male",
+    "age":"35",
     "name": {
       "title": "mr",
       "first": "andreas",
@@ -128,7 +136,9 @@ export const patients = [
       "street": "3556 toften",
       "city": "aarhus n",
       "state": "midtjylland",
-      "postcode": 13212
+      "postcode": 13212,
+      "latitude": 29.7322762,
+        "longitude": -95.3755461,
     },
     "description": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.",
     "email": "andreas.madsen@example.com",
@@ -157,6 +167,7 @@ export const patients = [
   },
   {
     "gender": "female",
+    "age":"38",
     "name": {
       "title": "mrs",
       "first": "clara",
@@ -166,7 +177,9 @@ export const patients = [
       "street": "5485 tecumseh rd",
       "city": "cumberland",
       "state": "manitoba",
-      "postcode": 34574
+      "postcode": 34574,
+      "latitude": 13.4817182,
+        "longitude": -86.4920736,
     },
     "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
     "email": "clara.taylor@example.com",
@@ -195,6 +208,7 @@ export const patients = [
   },
   {
     "gender": "female",
+    "age":"28",
     "name": {
       "title": "mrs",
       "first": "denise",
@@ -204,7 +218,9 @@ export const patients = [
       "street": "7749 ash dr",
       "city": "tamworth",
       "state": "south australia",
-      "postcode": 9010
+      "postcode": 9010,
+      "latitude": 47.9114733,
+        "longitude": 31.3156748,
     },
     "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.\n\nMauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.\n\nNullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
     "email": "denise.jones@example.com",
@@ -233,6 +249,7 @@ export const patients = [
   },
   {
     "gender": "female",
+    "age":"24",
     "name": {
       "title": "miss",
       "first": "nicole",
@@ -242,7 +259,9 @@ export const patients = [
       "street": "3698 dame street",
       "city": "greystones",
       "state": "louth",
-      "postcode": 93976
+      "postcode": 93976,
+      "latitude": 7.690466,
+        "longitude": -5.0390536,
     },
     "description": "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.\n\nAliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
     "email": "nicole.bryant@example.com",
@@ -271,6 +290,7 @@ export const patients = [
   },
   {
     "gender": "female",
+    "age":"36",
     "name": {
       "title": "madame",
       "first": "anaëlle",
@@ -280,7 +300,9 @@ export const patients = [
       "street": "9876 rue des cuirassiers",
       "city": "sullens",
       "state": "fribourg",
-      "postcode": 8369
+      "postcode": 8369,
+            "latitude": 32.099905,
+        "longitude": 118.031463,
     },
     "address": "24 Roth Pass",
     "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.\n\nMorbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
@@ -310,6 +332,7 @@ export const patients = [
   },
   {
     "gender": "male",
+    "age":"27",
     "name": {
       "title": "monsieur",
       "first": "luis",
@@ -319,7 +342,9 @@ export const patients = [
       "street": "4715 rue abel-hovelacque",
       "city": "cully",
       "state": "vaud",
-      "postcode": 5884
+      "postcode": 5884,
+       "latitude": 13.634726,
+        "longitude": -86.8107363,
     },
     "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
     "email": "luis.robin@example.com",
@@ -348,6 +373,7 @@ export const patients = [
   },
   {
     "gender": "female",
+    "age":"58",
     "name": {
       "title": "miss",
       "first": "emilia",
@@ -357,8 +383,11 @@ export const patients = [
       "street": "3041 calle de segovia",
       "city": "pamplona",
       "state": "comunidad valenciana",
-      "postcode": 93299
+      "postcode": 93299,
+      "latitude": 8.5914775,
+        "longitude": 16.0757749,
     },
+    "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.\n\nAenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
     "email": "emilia.iglesias@example.com",
     "login": {
       "username": "smalltiger997",
@@ -383,115 +412,5 @@ export const patients = [
     },
     "nat": "ES"
   },
-  {
-    "gender": "female",
-    "name": {
-      "title": "ms",
-      "first": "danielle",
-      "last": "oliver"
-    },
-    "location": {
-      "street": "8009 poplar dr",
-      "city": "hobart",
-      "state": "australian capital territory",
-      "postcode": 3169
-    },
-    "email": "danielle.oliver@example.com",
-    "login": {
-      "username": "greenostrich475",
-      "password": "screwyou",
-      "salt": "9Ffpa2So",
-      "md5": "198b5f56ee13576e3d707f632122d2ac",
-      "sha1": "8f002ab67dfb4d8a5479f88bef403f554e73d537",
-      "sha256": "224ded287fffe096a47bd8ef6080ab6730106bf31e6ccf8fa87f34b4e063c66e"
-    },
-    "dob": "1950-06-25 06:56:02",
-    "registered": "2011-06-19 07:37:58",
-    "phone": "04-1245-0812",
-    "cell": "0472-574-194",
-    "id": {
-      "name": "TFN",
-      "value": "089149818"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/women/43.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/women/43.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/43.jpg"
-    },
-    "nat": "AU"
-  },
-  {
-    "gender": "female",
-    "name": {
-      "title": "mrs",
-      "first": "esther",
-      "last": "nuñez"
-    },
-    "location": {
-      "street": "7144 calle de ferraz",
-      "city": "valladolid",
-      "state": "navarra",
-      "postcode": 50284
-    },
-    "email": "esther.nuñez@example.com",
-    "login": {
-      "username": "smallwolf596",
-      "password": "horace",
-      "salt": "sywGKiXd",
-      "md5": "9a7743c0c7816b71d91441adfc158b37",
-      "sha1": "975652a60c6b4c31634a1f9dc4ab3a7a00611882",
-      "sha256": "881f27e72e0abef51a2de5f023557284da0354fe5b7c8ad6055f5cd8cf5c6a86"
-    },
-    "dob": "1985-08-01 07:59:20",
-    "registered": "2014-08-27 12:27:32",
-    "phone": "961-351-729",
-    "cell": "692-589-794",
-    "id": {
-      "name": "DNI",
-      "value": "98137631-Y"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/women/21.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/women/21.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/21.jpg"
-    },
-    "nat": "ES"
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "mr",
-      "first": "نيما",
-      "last": "گلشن"
-    },
-    "location": {
-      "street": "6052 استاد نجاتاللهی",
-      "city": "خمینیشهر",
-      "state": "قزوین",
-      "postcode": 74670
-    },
-    "email": "نيما.گلشن@example.com",
-    "login": {
-      "username": "goldencat105",
-      "password": "lkjhgfds",
-      "salt": "8OgTnr1J",
-      "md5": "9244d64fb4aa366208753d8a76aeeb0c",
-      "sha1": "6dd19e41ad92906ea3dcc0172ddbe7759efb820b",
-      "sha256": "f2b966dedce7dfab73fc8d24013120b3cf02ea0573078ae15f8abd23d20da31f"
-    },
-    "dob": "1962-09-14 14:30:53",
-    "registered": "2012-11-09 09:22:22",
-    "phone": "091-29453546",
-    "cell": "0973-422-9066",
-    "id": {
-      "name": "",
-      "value": null
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/52.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/52.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/52.jpg"
-    },
-    "nat": "IR"
-  },
+  
 ];
