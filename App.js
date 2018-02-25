@@ -16,7 +16,7 @@ import Login from './src/pages/Login';
 import HomeScreen from './src/pages/HomeScreen';
 import UserDetails from './src/pages/UserDetails';
 import Patiens from './src/pages/Patiens';
-import Agenda from './src/pages/Agenda';
+import Calendario from './src/pages/Calendario';
 
 
 const ScreenMain = StackNavigator({
@@ -24,7 +24,7 @@ const ScreenMain = StackNavigator({
   HomeScreen: {screen: HomeScreen},
   Detalle:{screen: UserDetails},
   Pacientes:{screen: Patiens},
-  Agenda:{screen: Agenda},
+  Calendario:{screen: Calendario},
 });
 
 

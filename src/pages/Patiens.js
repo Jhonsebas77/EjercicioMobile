@@ -23,8 +23,8 @@ import {patients} from '../utilities/pacientes';
  export default class Patiens extends React.Component<{}> {
    static navigationOptions = ({ navigation }) => ({
      title: "Inicio ",
-     headerTintColor:'#50B19B',
-     headerColor:'#50B19B',
+     headerTintColor:'#03A9F4',
+     headerColor:'#03A9F4',
    });
    constructor(props){
        super(props);
@@ -47,7 +47,7 @@ import {patients} from '../utilities/pacientes';
 
    renderLoadingView(){
      return(
-       <Loading imageLoading= {require('../img/Landscape.jpg')} />
+       <Loading imageLoading= {require('../img/Loading2.png')} />
      )
    }
 
@@ -116,7 +116,7 @@ import {patients} from '../utilities/pacientes';
              onChangeText= {(text)=>this.filterSearch(text)}
              value={this.state.text}
             />
-<Card title="Pacientes" >
+<Card title="Pacientes" containerStyle={{borderRadius:20, marginBottom:20}}>
 
   <List containerStyle={{marginBottom: 20}}>
     {

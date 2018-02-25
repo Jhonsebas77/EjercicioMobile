@@ -29,7 +29,7 @@ import { List,ListItem,SearchBar,Card,Icon,FormLabel, Badge,FormInput,Divider  }
      return (
 
 
-       <Card style={styles.container} title="Informacion">
+       <Card containerStyle={styles.container} title="Informacion">
            <View style={styles.detaContainer}>
              <Icon reverse
                name='gender-male-female'
@@ -90,10 +90,7 @@ import { List,ListItem,SearchBar,Card,Icon,FormLabel, Badge,FormInput,Divider  }
 
  const styles = StyleSheet.create({
    container:{
-     flex:1,
-     alignItems:'center',
-     backgroundColor:'#6DA29E',
-     width:'100%',
+     borderRadius:20,
    },
    detaContainer:{
      padding:5,

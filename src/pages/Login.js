@@ -24,6 +24,24 @@
       this.state = { nameInput: '', passwordInput:''};
     }
 
+
+    CheckTextInputIsEmptyOrNot = () =>{
+
+     const { nameInput }  = this.state ;
+     const { passwordInput }  = this.state ;
+
+    if(nameInput == '' || passwordInput == '')
+    {
+      Alert.alert("Por favor ingresa los datos.");
+    }
+    else{
+       this.props.navigation.navigate('HomeScreen', {
+         name:this.state.nameInput
+       });
+     }
+
+    }
+
    render() {
      const { navigate } = this.props.navigation;
      var name=this.state.nameInput;
@@ -38,6 +56,7 @@
          <View style={styles.logoContainer}>
            <Image
              source= {require('../img/Logo.png')}
+             style={styles.logo}
            />
            <Text style={styles.title}>Medical Organizer (Beta)</Text>
          </View>
@@ -61,17 +80,13 @@
              />
             <TouchableOpacity
               style={styles.buttonContainer}
-              onPress={() => {
-                 this.props.navigation.navigate('HomeScreen', {
-                   name:name,
-                   password:password
-                 });
-               }}
+              onPress={this.CheckTextInputIsEmptyOrNot}
                >
             <Text style={styles.buttonText}>Iniciar Sesion</Text>
           </TouchableOpacity>
          </View>
          </Card>
+         <Text>App MAde With Love | @jhonsebas77</Text>
        </View>
      );
    }
@@ -87,13 +102,12 @@
    },
    logoContainer: {
      flexGrow:1,
-     margin:15,
      alignItems: 'center',
      justifyContent:'center',
    },
    logo: {
-     width: 150,
-     height:150
+     width: 200,
+     height:200
    },
    title:{
      color:'#03A9F4',
@@ -116,7 +130,7 @@
    },
    input: {
     width: '100%',
-    backgroundColor:'rgba(0,0,0,0.3)',
+    backgroundColor:'rgba(0,0,0,0.1)',
     paddingLeft:10,
     paddingRight:10,
     marginBottom:15,

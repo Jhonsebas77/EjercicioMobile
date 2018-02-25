@@ -34,13 +34,13 @@ import Note from './Note';
      });
      return (
 
-      <Card title= "Informacion Clinica">
+      <Card title= "Informacion Clinica" containerStyle={{borderRadius:20}}>
         <View>
           <Text>Historia Clinica</Text>
           <Text>{this.props.Historia}</Text>
         </View>
 
-        
+
       </Card>
      );
    }

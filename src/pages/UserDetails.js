@@ -23,15 +23,14 @@ import Extra from '../components/Extra';
  export default class UserDetails extends React.Component<{}> {
    static navigationOptions = ({ navigation }) => ({
      title: "Pacientes ",
-     headerTintColor:'#50B19B',
-     headerColor:'#50B19B',
+     headerTintColor:'#03A9F4',
+     headerColor:'#03A9F4',
    });
    constructor(props){
        super(props);
    }
    render() {
      const { params } = this.props.navigation.state;
-     console.log(params);
      const Nombre = params ? params.pacientes.name.first : null;
      const Apellido = params ? params.pacientes.name.last : null;
      var completname= Nombre + " "+  Apellido;

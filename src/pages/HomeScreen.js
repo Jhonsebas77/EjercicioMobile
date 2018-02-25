@@ -39,7 +39,7 @@ import {getRandomUsers} from '../utilities/api';
 
       renderLoadingView(){
         return(
-          <Loading imageLoading= {require('../img/Logo.png')} />
+          <Loading imageLoading= {require('../img/Loading1.png')} />
         )
       }
 
@@ -57,7 +57,9 @@ import {getRandomUsers} from '../utilities/api';
            <Navbar name={LoginName}/>
            <Card
              title='BIENVENIDO'
-             image={require('../img/Landscape.jpg')}>
+             image={require('../img/Landscape.jpg')}
+             containerStyle={{borderRadius:20}}
+             >
              <Text style={{marginBottom: 10}}>
                Medical Organizer te ayudara a organizar mejor tu agenda y conocer mejor a tus pacientes, por el momento toca el
                boton de "Ver Pacientes" para ver los pacientes que te han asignado, y "Ver Calendario" para visualizar tu agenda.
@@ -84,7 +86,7 @@ import {getRandomUsers} from '../utilities/api';
                   buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                   title='Ver Calendario'
                   onPress={() => {
-                     this.props.navigation.navigate('Agenda', {
+                     this.props.navigation.navigate('Calendario', {
                        LoginName:LoginName
                      });
                    }}
@@ -93,7 +95,7 @@ import {getRandomUsers} from '../utilities/api';
 
            </Card>
 
-           <Card title="Otros Usuarios Doctores">
+           <Card title="Otros Usuarios Doctores" containerStyle={{borderRadius:20}}>
               <FlatList
                 horizontal={true}
                 data={this.state.users.results}

@@ -33,7 +33,7 @@ import MapView from 'react-native-maps';
      });
      return (
 
-      <Card title= "Donde esta el paciente?" containerStyle={{height:300}}>
+      <Card title= "Donde esta el paciente?" containerStyle={{height:300, borderRadius:20}}>
         <View style={styles.mapContainer}>
             <MapView style={styles.map}
                 region={{
@@ -66,6 +66,8 @@ mapContainer:{
   width: '100%',
   justifyContent: 'center',
   alignItems: 'center',
+  borderRadius:20,
+  marginBottom:20
 },
 mapView:{
   width:520,
