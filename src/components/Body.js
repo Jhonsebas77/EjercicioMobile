@@ -16,7 +16,6 @@
  } from 'react-native';
 import { SearchBar,Card  } from 'react-native-elements';
 import MapView from 'react-native-maps';
-import Note from './Note';
 
  export default class Body extends React.Component<{}> {
 
